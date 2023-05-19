@@ -9,6 +9,7 @@ namespace APIClientApp
     {
         static async Task Main(string[] args)
         {
+            // Test to check Connection to API
             var client = new HttpClient();
             // Set up the request
             var digimonLevelRequest = new HttpRequestMessage()
