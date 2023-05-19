@@ -4,12 +4,17 @@ using System.Security.Cryptography.X509Certificates;
 using APIClientApp.PostcodeIOService;
 using System.Text.Json.Nodes;
 using APIClientApp.PostcodeIOService.DataHandling;
+using System.Net.Http.Headers;
 
 namespace APIClientApp.Tests
 {
     public class APIClientAppShould
     {
+<<<<<<< HEAD
         #region APIClientShould DigimonApi Response
+=======
+        #region APIClientShould Digimon Response
+>>>>>>> b96df1b97b70b7b650e29b7a497122161976ec3c
         private static string _testDataLocation = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\TestData\");
         [Test]
         public async Task ReturnCorrectStatusCode_WhenStatusCodeMethodIsCalled()
@@ -26,67 +31,47 @@ namespace APIClientApp.Tests
             Assert.That(spcs.GetStatusCode(), Is.EqualTo(200));
         }
         [Test]
-        [Ignore("Not Implemented")]
-        public async Task ReturnsCorrectNumberOfCodesFromJsonResponse_WhenCodeCountIsCalled()
-        {
-            //var mockCallManager = new Mock<ICallManager>();
-
-            //mockCallManager
-            //    .Setup(c => c.TronaldDumpResponse)
-            //    .Returns(It.IsAny<HttpResponseMessage>());
-
-            //mockCallManager
-            //    .Setup(x => x.MakeRequestAsync(It.IsAny<string>()))
-            //    .ReturnsAsync(File.ReadAllText(_testDataLocation + "SuccessfulSinglePostcodeResponse.json"));
-            //var spcs = new TronalDumpService(mockCallManager.Object);
-            //await spcs.MakeRequestAsync(It.IsAny<string>());
-
-            //Assert.That(spcs.CodeCount(), Is.EqualTo(13));
-        }
-        [Test]
-        [Ignore("Not Implemented")]
         public async Task ReturnsCorrectHeaderValue_WhenGetHeadersIsCalled()
         {
-            //string expectedValue = "testValue";
-            //var headers = new List<HeaderParameter>
-            //{
-            //        new HeaderParameter ("header1", "value1" ),
-            //        new HeaderParameter ("header2", expectedValue )
-            //};
+            HttpResponseMessage response = new HttpResponseMessage();
+            response.Headers.Add("Connection", "keep-alive");
 
-            //var mockCallManager = new Mock<ICallManager>();
+            var mockCallManager = new Mock<ICallManager>();
 
-            //// RestResponse StatusCode property set to OK status code
-            //mockCallManager
-            //    .Setup(x => x.TronaldDumpResponse)
-            //    .Returns(new HttpResponseMessage { Headers = headers });
+            mockCallManager
+                .Setup(x => x.DigimonResponse)
+                .Returns(response);
+            mockCallManager
+                .Setup(x => x.MakeRequestAsync(It.IsAny<string>()))
+                .ReturnsAsync("{\"key\":\"value\"}");
 
-            //mockCallManager
-            //    .Setup(x => x.MakeRequestAsync(It.IsAny<string>()))
-            //    .ReturnsAsync("{\"key\":\"value\"}");
+            var spcs = new DigimonService(mockCallManager.Object);
+            await spcs.MakeRequestAsync(It.IsAny<string>());
 
-            //var spcs = new TronalDumpService(mockCallManager.Object);
-            //await spcs.MakeRequestAsync(It.IsAny<string>());
-            //Assert.That(spcs.GetHeaderValue("header2"), Is.EqualTo(expectedValue));
+            var result = spcs.GetHeaderValue("Connection");
+            Assert.That(result, Is.EqualTo("keep-alive"));
         }
 
         [Test]
-        [Ignore("Not Implemented")]
         public async Task ReturnCorrectContentType_WhenGetResponseContentTypeIsCalled()
         {
-            //var mockCallManager = new Mock<ICallManager>();
+            HttpResponseMessage response = new HttpResponseMessage();
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            //mockCallManager
-            //    .Setup(x => x.TronaldDumpResponse)
-            //    .Returns(new HttpResponseMessage { Content = "application/json" });
+            var mockCallManager = new Mock<ICallManager>();
 
-            //mockCallManager
-            //    .Setup(x => x.MakeRequestAsync(It.IsAny<string>()))
-            //    .ReturnsAsync("{\"key\":\"value\"}");
+            mockCallManager
+                .Setup(x => x.DigimonResponse)
+                .Returns(response);
+            mockCallManager
+                .Setup(x => x.MakeRequestAsync(It.IsAny<string>()))
+                .ReturnsAsync("{\"key\":\"value\"}");
 
-            //var spcs = new TronalDumpService(mockCallManager.Object);
-            //await spcs.MakeRequestAsync(It.IsAny<string>());
-            //Assert.That(spcs.GetResponseContentType(), Is.EqualTo("application/json"));
+            var spcs = new DigimonService(mockCallManager.Object);
+            await spcs.MakeRequestAsync(It.IsAny<string>());
+
+            var result = spcs.GetResponseContentType();
+            Assert.That(result, Is.EqualTo("application/json"));
         }
         #endregion
     }
