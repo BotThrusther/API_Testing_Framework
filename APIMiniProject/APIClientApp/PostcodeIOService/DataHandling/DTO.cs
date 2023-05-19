@@ -12,9 +12,9 @@ namespace APIClientApp.PostcodeIOService.DataHandling
     {
         public T Response {get; set;}
 
-        public void DeserializeResponse(string tronaldDumpResponse)
+        public void DeserializeResponse(string DigimonResponse)
         {
-            Response = JsonConvert.DeserializeObject<T>(tronaldDumpResponse);
+            Response = JsonConvert.DeserializeObject<T>(DigimonResponse);
         }
     }
 }

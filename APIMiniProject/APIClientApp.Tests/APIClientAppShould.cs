@@ -17,14 +17,14 @@ namespace APIClientApp.Tests
             var mockCallManager = new Mock<ICallManager>();
 
             mockCallManager
-                .Setup(c => c.TronaldDumpResponse)
+                .Setup(c => c.DigimonResponse)
                 .Returns(new HttpResponseMessage { StatusCode = System.Net.HttpStatusCode.OK });
 
             mockCallManager
                 .Setup(x => x.MakeRequestAsync(It.IsAny<string>()))
                 .ReturnsAsync("{\"key\":\"value\"}");
 
-            var spcs = new TronalDumpService(mockCallManager.Object);
+            var spcs = new DigimonService(mockCallManager.Object);
             await spcs.MakeRequestAsync(It.IsAny<string>());
 
             Assert.That(spcs.GetStatusCode(), Is.EqualTo(200));
