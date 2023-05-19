@@ -39,6 +39,8 @@ namespace APIClientApp.PostcodeIOService
 
         public string GetResponseContentType()
         {
+            
+            return CallManager.DigimonResponse.Content.Headers.ContentType.ToString();
         }
     }
 }
