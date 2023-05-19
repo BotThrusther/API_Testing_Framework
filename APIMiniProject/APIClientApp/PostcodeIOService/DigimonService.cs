@@ -39,7 +39,7 @@ namespace APIClientApp.PostcodeIOService
 
         public string GetResponseContentType()
         {
-            //return GetHeaderValue("Content-Type");
+            
             return CallManager.DigimonResponse.Content.Headers.ContentType.ToString();
         }
     }
