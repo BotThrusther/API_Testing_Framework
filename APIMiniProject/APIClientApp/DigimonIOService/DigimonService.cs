@@ -15,6 +15,7 @@ namespace APIClientApp.PostcodeIOService
         #region Properties
         public ICallManager CallManager { get; set; }
         public string DigimonResponse { get; set; }
+        public JArray DigimonJResponse { get; set; }
         #endregion
 
         public DigimonService(ICallManager callManager = null)
@@ -25,6 +26,13 @@ namespace APIClientApp.PostcodeIOService
         public async Task MakeRequestAsync(string callTag)
         {
             DigimonResponse = await CallManager.MakeRequestAsync(callTag);
+            try
+            {
+                DigimonJResponse = JArray.Parse(DigimonResponse);
+            }
+            catch (JsonReaderException jre)
+            {
+            }
         }
 
         public int GetStatusCode()
@@ -40,6 +48,11 @@ namespace APIClientApp.PostcodeIOService
         public string GetResponseContentType()
         {
             return GetHeaderValue("Content-Type");
+        }
+
+        public bool IsOnlyLevel(string level)
+        {
+            return DigimonJResponse.All(x => x["level"].ToString().ToLower() == level.ToLower());
         }
     }
 }

@@ -9,7 +9,7 @@ namespace APIClientApp.Tests
 {
     public class APIClientAppShould
     {
-        #region APIClientShould TronaldDump Response
+        #region APIClientShould DigimonApi Response
         private static string _testDataLocation = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\TestData\");
         [Test]
         public async Task ReturnCorrectStatusCode_WhenStatusCodeMethodIsCalled()
@@ -19,10 +19,6 @@ namespace APIClientApp.Tests
             mockCallManager
                 .Setup(c => c.DigimonResponse)
                 .Returns(new HttpResponseMessage { StatusCode = System.Net.HttpStatusCode.OK });
-
-            mockCallManager
-                .Setup(x => x.MakeRequestAsync(It.IsAny<string>()))
-                .ReturnsAsync("{\"key\":\"value\"}");
 
             var spcs = new DigimonService(mockCallManager.Object);
             await spcs.MakeRequestAsync(It.IsAny<string>());
