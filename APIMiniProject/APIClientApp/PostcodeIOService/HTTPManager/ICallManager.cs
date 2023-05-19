@@ -8,7 +8,7 @@ namespace APIClientApp.PostcodeIOService.HTTPManager
 {
     public interface ICallManager
     {
-        public HttpResponseMessage TronaldDumpResponse { get; set; }
-        public Task<string> MakeRequestAsync(string postcode);
+        public HttpResponseMessage DigimonResponse { get; set; }
+        public Task<string> MakeRequestAsync(string requestTag);
     }
 }
