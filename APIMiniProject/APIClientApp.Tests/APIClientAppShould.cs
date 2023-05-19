@@ -9,7 +9,7 @@ namespace APIClientApp.Tests
 {
     public class APIClientAppShould
     {
-        #region APIClientShould TronaldDump Response
+        #region APIClientShould Digimon Response
         private static string _testDataLocation = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\TestData\");
         [Test]
         public async Task ReturnCorrectStatusCode_WhenStatusCodeMethodIsCalled()
