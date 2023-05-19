@@ -15,14 +15,15 @@
 [Test Metrics](#test-metrics)
 
 ## Introduction
+This repository holds the testing framework for the [Digimon](https://digimon-api.vercel.app) API.
 
 Team Members:
 
-- **Anthony Naguib:**
-- **Neisewand Hussain:**
-- **Manvir Nandra:**
-- **Aaron Lewis:**
-- **Abdul Majid Ali:**
+- **Anthony Naguib:** MOQ Testing, README , User story & Test Cases
+- **Neisewand Hussain:** GitHub repo, README
+- **Manvir Nandra:** Digimon table testing, User story & Test Cases
+- **Aaron Lewis:** Digimon query name testing, Framework setup
+- **Abdul Majid Ali:** Digimon query level testing, User story & Test Cases
 
 ## Goal of the Project
 
@@ -39,10 +40,20 @@ The deliverables for this project consist of:
 - Collaborative use of GitHub
 
 ## How to setup the framework
+Ask aaron
+add class diagram
 
+In order to setup the framework the following packages are required:
+- Nunit
+- Newtonsoft.Json
+- Specflow
+- Configuration Manager
+
+The solution was created in Visual Studio 2022. For further understanding of the layout of the framework please refer to the class diagram below:
 ## How the framework can be extended
 
 ## What was tested
+The requirments, user stories and scenarios can be seen in document - [User stories and test cases](https://docs.google.com/document/d/1zJFW2LcSz0i6N4kiHtgBekK0MjMJCdvdJnzaR8li-bY/edit?usp=sharing)
 
 ## Test Metrics
 
@@ -59,5 +70,22 @@ _18/05/2023_
 _19/05/2023_
 
 - User Stories and Test Framework edited to use Digimon API
+- Test made using specflow
+- Test cases completed
+- Presentation made
+- README updated
 
 \_22/05/2023_amework
+
+## What went well and what went bad
+### Good
+-
+-
+-
+-
+
+### Bad
+-
+-
+-
+-
