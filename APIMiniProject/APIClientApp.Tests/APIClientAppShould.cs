@@ -10,13 +10,11 @@ namespace APIClientApp.Tests
 {
     public class APIClientAppShould
     {
-<<<<<<< HEAD
         #region APIClientShould DigimonApi Response
-=======
-        #region APIClientShould Digimon Response
->>>>>>> b96df1b97b70b7b650e29b7a497122161976ec3c
+
         private static string _testDataLocation = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\TestData\");
         [Test]
+        [Category("Happy")]
         public async Task ReturnCorrectStatusCode_WhenStatusCodeMethodIsCalled()
         {
             var mockCallManager = new Mock<ICallManager>();
@@ -24,6 +22,9 @@ namespace APIClientApp.Tests
             mockCallManager
                 .Setup(c => c.DigimonResponse)
                 .Returns(new HttpResponseMessage { StatusCode = System.Net.HttpStatusCode.OK });
+            mockCallManager
+                .Setup(x => x.MakeRequestAsync(It.IsAny<string>()))
+                .ReturnsAsync("{\"key\":\"value\"}");
 
             var spcs = new DigimonService(mockCallManager.Object);
             await spcs.MakeRequestAsync(It.IsAny<string>());
@@ -31,6 +32,7 @@ namespace APIClientApp.Tests
             Assert.That(spcs.GetStatusCode(), Is.EqualTo(200));
         }
         [Test]
+        [Category("Happy")]
         public async Task ReturnsCorrectHeaderValue_WhenGetHeadersIsCalled()
         {
             HttpResponseMessage response = new HttpResponseMessage();
@@ -53,6 +55,7 @@ namespace APIClientApp.Tests
         }
 
         [Test]
+        [Category("Happy")]
         public async Task ReturnCorrectContentType_WhenGetResponseContentTypeIsCalled()
         {
             HttpResponseMessage response = new HttpResponseMessage();
