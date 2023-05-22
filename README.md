@@ -40,8 +40,6 @@ The deliverables for this project consist of:
 - Collaborative use of GitHub
 
 ## How to setup the framework
-Ask aaron
-add class diagram
 
 In order to setup the framework the following packages are required:
 - Nunit
@@ -51,6 +49,7 @@ In order to setup the framework the following packages are required:
 
 The solution was created in Visual Studio 2022. For further understanding of the layout of the framework please refer to the class diagram below:
 ![image](https://github.com/BotThrusther/API_Testing_Framework/assets/32465629/93d9b26b-a0dc-4ac8-84fc-d1d3699614be)
+
 ## How the framework can be extended
 
 
