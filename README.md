@@ -1,4 +1,4 @@
-# API_Testing_Framework
+﻿# API_Testing_Framework
 
 ## Table of Contents
 
@@ -51,13 +51,32 @@ In order to setup the framework the following packages are required:
 The solution was created in Visual Studio 2022. For further understanding of the layout of the framework please refer to the class diagram below:
 ![image](https://media.discordapp.net/attachments/1108750548682944542/1110145296798851112/239859154-93d9b26b-a0dc-4ac8-84fc-d1d3699614be.png)
 
+This is the class structure for making and recieving API calls to and from the API server.
+
 ## How the framework can be extended
 
+Whilst our framework meets all the base requirements, here are some improvements that can be made:
+- Refactoring: Utilising more helper methods to extrace code logic from the tests. Add a SharedSteps class to improve code resusability.
+- Performance and Stress Testing: Test the response time of the API calls to identify bottlenecks and determine the scalability of the API.
+- Extend ICallManager: to utilise this interface to create different types of requests through method overloading.
 
 ## What was tested
 The requirments, user stories and scenarios can be seen in document - [User stories and test cases](https://docs.google.com/document/d/1zJFW2LcSz0i6N4kiHtgBekK0MjMJCdvdJnzaR8li-bY/edit?usp=sharing)
 
 ## Test Metrics
+ Testing Metrics | Test Case Development & Execution
+ ----------------|-------------------------
+Number of Requirements | 3 
+Number of Test Cases Written | ​19​
+Number of Test Cases Executed | ​12​
+Number of Test Cases Unexecuted | ​7​
+Number of Test Cases Passed | ​12​
+Number of Test Cases Failed | ​0​
+Total Number of Defects Found | ​1​
+High Defect Count | ​0​
+Medium Defect Count​ | 1​
+Low Defect Count | ​0​
+
 
 ## Diary
 
@@ -77,17 +96,21 @@ _19/05/2023_
 - Presentation made
 - README updated
 
-\_22/05/2023_amework
+_22/05/2023_
+
+- Created GitHub Workflow
+- Presentation Finished
+- README Finished
 
 ## What went well and what went bad
 ### Good
--
--
--
--
+- Team collaborated effectively using Teams, Discord and Github​
+- Open communication ​
+- Help available from other team members with issues​
+- API test framework was implemented correctly ​
+- Majority of tests were implemented and passed
 
 ### Bad
--
--
--
--
+- Violated some of SOLID principles​
+- Chosen API sends responses that are difficult to manipulate​
+- Documentation was difficult to understand
