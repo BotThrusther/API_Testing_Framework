@@ -50,7 +50,9 @@ In order to setup the framework the following packages are required:
 - Configuration Manager
 
 The solution was created in Visual Studio 2022. For further understanding of the layout of the framework please refer to the class diagram below:
+![image](https://github.com/BotThrusther/API_Testing_Framework/assets/32465629/93d9b26b-a0dc-4ac8-84fc-d1d3699614be)
 ## How the framework can be extended
+
 
 ## What was tested
 The requirments, user stories and scenarios can be seen in document - [User stories and test cases](https://docs.google.com/document/d/1zJFW2LcSz0i6N4kiHtgBekK0MjMJCdvdJnzaR8li-bY/edit?usp=sharing)
