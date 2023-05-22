@@ -10,11 +10,11 @@ namespace APIClientApp.Tests
 {
     public class APIClientAppShould
     {
-
         #region APIClientShould DigimonApi Response
 
         private static string _testDataLocation = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\TestData\");
         [Test]
+        [Category("Happy")]
         public async Task ReturnCorrectStatusCode_WhenStatusCodeMethodIsCalled()
         {
             var mockCallManager = new Mock<ICallManager>();
@@ -32,6 +32,7 @@ namespace APIClientApp.Tests
             Assert.That(spcs.GetStatusCode(), Is.EqualTo(200));
         }
         [Test]
+        [Category("Happy")]
         public async Task ReturnsCorrectHeaderValue_WhenGetHeadersIsCalled()
         {
             HttpResponseMessage response = new HttpResponseMessage();
@@ -54,6 +55,7 @@ namespace APIClientApp.Tests
         }
 
         [Test]
+        [Category("Happy")]
         public async Task ReturnCorrectContentType_WhenGetResponseContentTypeIsCalled()
         {
             HttpResponseMessage response = new HttpResponseMessage();
