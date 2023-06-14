@@ -1,4 +1,6 @@
-﻿# API_Testing_Framework
+[![Build and Run Unit Tests](https://github.com/BotThrusther/API_Testing_Framework/actions/workflows/dotnet.yml/badge.svg)](https://github.com/BotThrusther/API_Testing_Framework/actions/workflows/dotnet.yml)
+
+# API_Testing_Framework
 
 ## Table of Contents
 
